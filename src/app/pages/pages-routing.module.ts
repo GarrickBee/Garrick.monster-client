@@ -11,8 +11,12 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     children: [
-      { path: '', component: HomeComponent },
-      { path: 'blog', component: BlogComponent, data: { animation: 'HomePage' } }
+      {
+        path: '', component: HomeComponent
+      },
+      {
+        path: 'blog', component: BlogComponent
+      }
     ]
   }
 ];
