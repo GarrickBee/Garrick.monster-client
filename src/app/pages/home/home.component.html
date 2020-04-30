@@ -1,22 +1,54 @@
 <div class="col s12 m7">
+    <!-- <div class="carousel carousel-slider center" style="margin-top:10px;max-height:300px">
+    <div class="carousel carousel-slider center">
+        <a class="carousel-item" href="#one!">
+            <img src="./assets/image/satelite.jpg">
+        </a>
+        <a class="carousel-item" style="max-height:300px" href="#two!"><img src="./assets/image/macbook.jpg"></a>
+        <a class="carousel-item" style="max-height:300px" href="#three!"><img src="./assets/image/satelite.jpg"></a>
+        <a class="carousel-item" href="#two!"><img src="./assets/image/portrait.jpg"></a>
+    </div> -->
+    <!-- <div class="slider">
+        <ul class="slides">
+            <li>
+                <a href=""><img src="./assets/image/macbook.jpg"></a> 
+                <div class="caption center-align">
+                    <h3>This is our big Tagline!</h3>
+                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+            </li>
+            <li>
+                <a href="#!">
+                    <img src="./assets/image/satelite.jpg">
+                    <div class="caption center-align">
+                        <h3>This is our big Tagline!</h3>
+                        <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div> -->
+
     <div class="card horizontal" style="padding:0.40rem;">
         <img class="card-image responsive-img hide-on-small-only" src="./assets/image/satelite.jpg"
             style="width:35%;object-fit:cover">
         <div class="card-stacked">
             <div class="card-content" style="padding:0px 0.6rem 0.3rem 0.6rem ">
                 <h6 class="grey-text text-darken-2">
-                    <a (click)="onBtnActionClicked()">
+                    <a [routerLink]="['/blog']" routerLinkActive="router-link-active">
                         <b>Blog Title</b>
                     </a>
                 </h6>
                 <p>I am a very simple card. I am good at containing small bits of information.</p>
             </div>
-            <div class="card-action right-align" style='padding:0.2rem 0.4rem'>
-                <a href="#" style="font-size:12px;margin:0.2rem">date</a>
-                <a href="#" style="font-size:12px;margin:0.2rem">date</a>
-                <a href="#" style="font-size:12px;margin:0.2rem">date</a>
-                <a href="#" style="font-size:12px;margin:0.2rem">date</a>
-                <a href="#" style="font-size:12px;margin:0.2rem">date</a>
+            <div class="card-action right-align"
+                style='padding:0.2rem 0.4rem;display:flex;justify-content: space-around;'>
+                <a href="#" style="font-size:12px;margin:0 auto">
+                    <i class="fas fa-clock"></i> {{currentDate | date:'yyyy-MM-dd'}}</a>
+                <a href="#" style="font-size:12px;margin:0 auto"><i class="fas fa-eye"></i> View</a>
+                <a href="#" style="font-size:12px;margin:0 auto"><i class="fas fa-comments"></i> comment</a>
+                <a href="#" style="font-size:12px;margin:0 auto"><i class="fas fa-thumbs-up"></i> like</a>
+                <a href="#" style="font-size:12px;margin:0 auto"><i class="fas fa-box-open"></i> date</a>
             </div>
         </div>
     </div>

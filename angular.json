@@ -31,7 +31,8 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "./node_modules/materialize-css/dist/js/materialize.min.js"
+              "./node_modules/materialize-css/dist/js/materialize.min.js",
+              "src/assets/js/custom.js"
             ]
           },
           "configurations": {

@@ -1,3 +1,7 @@
+![Garrick Monster System Concept Design](./system_design.png)
+
+# Project Overview 
+This is a ongoing project thats going to be personal blog , portfolio and showcase corner. Why involve so many stuff? Well I dunno lets go do something crazy during this corona virus outbreak then. 
 # Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.

@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-
+declare const M: any;
 @Component({
   selector: 'app-pages',
   template: `
@@ -19,9 +19,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
 
+  title = 'testing';
   constructor() { }
 
   ngOnInit(): void {
-  }
 
+  }
 }
