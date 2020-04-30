@@ -30,3 +30,7 @@ main {
         @extend .darken-1;
     }
 }
+
+.testing {
+    object-fit: contain !important;
+}
