@@ -5,14 +5,27 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AsideComponent } from './components/aside/aside.component';
 import { RouterModule } from '@angular/router';
+import { BlogHorizontalComponent } from './components/blog-horizontal/blog-horizontal.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SidebarComponent, AsideComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
+    AsideComponent,
+    BlogHorizontalComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [HeaderComponent, FooterComponent, SidebarComponent, AsideComponent]
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
+    AsideComponent,
+    BlogHorizontalComponent
+  ]
 })
 export class SharedModule { }
