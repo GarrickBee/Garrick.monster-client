@@ -1,1 +1,0 @@
-window.mySwipe = new Swipe(document.getElementsByClassName('swipe'));

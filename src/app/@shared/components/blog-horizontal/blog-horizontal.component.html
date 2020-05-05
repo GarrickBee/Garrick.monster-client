@@ -1,14 +1,14 @@
-<div class="card horizontal" style="padding:0.40rem;">
+<div *ngFor="let article of articles" class="card horizontal" style="padding:0.40rem;">
     <img class="card-image responsive-img hide-on-small-only" src="./assets/image/satelite.jpg"
         style="width:35%;object-fit:cover">
     <div class="card-stacked">
         <div class="card-content" style="padding:0px 0.6rem 0.3rem 0.6rem ">
             <h6 class="grey-text text-darken-2">
-                <a [routerLink]="['/blog']" routerLinkActive="router-link-active">
-                    <b>Blog Title</b>
+                <a [routerLink]="['/blog', article.slug]" routerLinkActive="router-link-active">
+                    <b>{{article.title}}</b>
                 </a>
             </h6>
-            <p>I am a very simple card. I am good at containing small bits of information.</p>
+            <p>{{article.description}}</p>
         </div>
         <div class="card-action right-align" style='padding:0.2rem 0.4rem;display:flex;justify-content: space-around;'>
             <a href="#" style="font-size:12px;margin:0 auto">

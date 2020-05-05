@@ -6,7 +6,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AsideComponent } from './components/aside/aside.component';
 import { RouterModule } from '@angular/router';
 import { BlogHorizontalComponent } from './components/blog-horizontal/blog-horizontal.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { BlogHorizontalComponent } from './components/blog-horizontal/blog-horiz
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     RouterModule
   ],
   exports: [
@@ -25,6 +26,7 @@ import { BlogHorizontalComponent } from './components/blog-horizontal/blog-horiz
     FooterComponent,
     SidebarComponent,
     AsideComponent,
+    HttpClientModule,
     BlogHorizontalComponent
   ]
 })

@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from '@shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 
 @NgModule({
@@ -13,7 +11,6 @@ import { PagesModule } from './pages/pages.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
     PagesModule
   ],
   providers: [],

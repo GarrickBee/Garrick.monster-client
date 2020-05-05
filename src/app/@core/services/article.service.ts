@@ -13,12 +13,11 @@ export class ArticleService {
     private apiService: ApiService
   ) { }
 
-  getArticles(): Observable<Article> {
-    return this.apiService.get('/articles')
-      .pipe(map(data => data.article));
+  getArticles(): Observable<{ article: Article[] }> {
+    return this.apiService.get('/article');
   }
 
-  get(slug: string): Observable<Article> {
+  get(slug: string): Observable<{ article: Article[] }> {
     return this.apiService.get('/articles/' + slug)
       .pipe(map(data => data.article));
   }
