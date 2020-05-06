@@ -10,7 +10,6 @@ import { Article } from '@core/models';
 })
 export class BlogHorizontalComponent {
   articles: { article: Article[]; };
-
   // article: Article[];
   constructor(
     private apiService: ApiService,

@@ -15,10 +15,10 @@ export class ArticleService {
 
   getArticles(): Observable<{ article: Article[] }> {
     return this.apiService.get('/article');
+
   }
 
-  get(slug: string): Observable<{ article: Article[] }> {
-    return this.apiService.get('/articles/' + slug)
-      .pipe(map(data => data.article));
+  getArticle(slug: string): Observable<Article> {
+    return this.apiService.get(`/article/${slug}`);
   }
 }

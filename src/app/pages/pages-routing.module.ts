@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { BlogComponent } from './blog/blog.component';
+import { ArticleComponent } from './article/article.component';
 import { PagesComponent } from './pages.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { ArticleResolver } from '@core/resolver';
 
 const routes: Routes = [
   {
@@ -12,10 +13,19 @@ const routes: Routes = [
     component: PagesComponent,
     children: [
       {
-        path: '', component: HomeComponent
+        path: '',
+        component: HomeComponent
       },
       {
-        path: 'blog', component: BlogComponent
+        path: 'blog',
+        component: ArticleComponent,
+      },
+      {
+        path: 'blog/:slug',
+        component: ArticleComponent,
+        resolve: {
+          article: ArticleResolver
+        }
       }
     ]
   }
