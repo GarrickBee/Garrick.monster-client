@@ -14,7 +14,7 @@ import { SharedModule } from '@shared/shared.module';
     SharedModule,
     ArticleModule,
     HomeModule,
-    PagesRoutingModule
+    PagesRoutingModule,
   ],
   exports: [PagesRoutingModule]
 })

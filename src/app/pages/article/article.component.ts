@@ -22,15 +22,10 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // this.activatedRoute.params.subscribe(params => {
-    //   const id = params['slug'];
-    //   console.log(params['slug']);
-    // });
-
+    // Generate Page 
     this.activatedRoute.data.subscribe(
       (data: { article: Article }) => {
         this.article = data.article;
-        console.log(this.article);
       }
     );
 

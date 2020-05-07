@@ -6,6 +6,7 @@
 
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import Swiper from 'swiper';
 // import { ApiService } from '@core/services';
 
 // Materialize Init
@@ -24,6 +25,22 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.carousel_init();
     this.currentDate = new Date();
+
+    var mySwiper = new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      fadeEffect: {
+        crossFade: true
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        hide: true,
+      },
+    });
+
   }
 
   carousel_init() {
