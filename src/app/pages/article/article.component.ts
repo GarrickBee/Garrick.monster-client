@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Article } from '@core/models';
 import { ArticleService } from '@core/services';
 
@@ -10,27 +10,22 @@ import { ArticleService } from '@core/services';
 })
 export class ArticleComponent implements OnInit {
   article: any;
-  testing: any;
-
-
-
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private articleService: ArticleService,
   ) { }
 
   ngOnInit(): void {
+    this.getArticle();
+  }
 
-    // Generate Page 
+  // Generate Article 
+  getArticle() {
+    // Article Resolver 
     this.activatedRoute.data.subscribe(
       (data: { article: Article }) => {
         this.article = data.article;
       }
     );
-
-
   }
-
-
 }

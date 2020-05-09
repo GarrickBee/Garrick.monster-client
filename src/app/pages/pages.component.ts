@@ -1,5 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Article } from '@core/models';
 declare const M: any;
 @Component({
   selector: 'app-pages',
@@ -7,9 +9,9 @@ declare const M: any;
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
-
-  title = 'testing';
-  constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
 

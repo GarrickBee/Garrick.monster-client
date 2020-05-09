@@ -6,11 +6,15 @@ import { ArticleComponent } from './article/article.component';
 import { PagesComponent } from './pages.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ArticleResolver } from '@core/resolver';
+import { PageResolver } from '@core/resolver/page-resolver.service';
 
 const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
+    resolve: {
+      pageData: PageResolver
+    },
     children: [
       {
         path: '',

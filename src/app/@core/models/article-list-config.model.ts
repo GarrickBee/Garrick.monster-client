@@ -1,5 +1,5 @@
 export interface ArticleListConfig {
-  type: string;
+  type?: string;
 
   filters: {
     tag?: string,

@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Article } from '@core/models';
+import { Article, ArticleListConfig } from '@core/models';
 import { ArticleService } from '@core/services';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ArticleResolver implements Resolve<Article> {
+export class PageResolver implements Resolve<any> {
 
   constructor(
     private articleService: ArticleService,
@@ -20,7 +20,16 @@ export class ArticleResolver implements Resolve<Article> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> {
-    return this.articleService.getArticle(route.params['slug'])
-      .pipe(catchError(() => this.router.navigateByUrl('/')));
+
+    // Query Feature Article 
+    var config: ArticleListConfig = {
+      type: 'feature',
+      filters: {
+        limit: 3
+      }
+    }
+    let articleFeature = this.articleService.getFeatureArticles(config).pipe(catchError(() => this.router.navigateByUrl('/')));
+
+    return forkJoin([articleFeature]);
   }
 }

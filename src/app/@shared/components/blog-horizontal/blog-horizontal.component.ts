@@ -9,7 +9,9 @@ import { Article } from '@core/models';
   styleUrls: ['./blog-horizontal.component.scss']
 })
 export class BlogHorizontalComponent {
-  articles: { article: Article[]; };
+  articles: any;
+
+
   // article: Article[];
   constructor(
     private apiService: ApiService,
@@ -19,7 +21,7 @@ export class BlogHorizontalComponent {
   ngOnInit(): void {
     // Query Article 
     this.articleService.getArticles().subscribe(data => {
-      this.articles = data;
+      this.articles = data.articles;
     });
   }
 }

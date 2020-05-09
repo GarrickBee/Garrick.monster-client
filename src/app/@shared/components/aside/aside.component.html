@@ -1,12 +1,28 @@
-<ul class="collection with-header">
-    <li href="#!" class="collection-item" style="padding:0.6rem"><b>Latest</b></li>
-    <li href="#!" class="collection-item" style="padding:0.6rem"><a href=""><span class="new badge">1</span>Alan</a>
-    </li>
-    <li href="#!" class="collection-item" style="padding:0.6rem"><span class="new badge">1</span>Alan</li>
-    <li href="#!" class="collection-item" style="padding:0.6rem"><span class="new badge">1</span>Alan</li>
-    <li href="#!" class="collection-item" style="padding:0.6rem"><span class="new badge">1</span>Alan</li>
-    <li href="#!" class="collection-item" style="padding:0.6rem"><span class="new badge">1</span>Alan</li>
-</ul>
+<!-- Feature Articles -->
+<div class="card-panel" style="padding:0px">
+    <table>
+        <tbody>
+            <tr>
+                <td colspan="2" style="padding-left :15px"><b>Features</b></td>
+            </tr>
+            <tr *ngFor="let article of featureArticles; let key = index">
+                <td style="padding-left :15px;font-size: 0.85rem;font-weight:500;text-transform:capitalize">
+                    <a [routerLink]="['/blog',article.slug]" routerLinkActive="router-link-active">
+                        {{ (article.title.length>35)? (article.title | slice:0:35)+' ...':(article.title) }}
+                    </a>
+                </td>
+                <td>
+                    <span [ngClass]="{
+                        'darken-4': key == 0, 
+                        'darken-2' : key == 1,
+                        '': key == 2,
+                        'lighten-3': key > 2 }" class="new badge light-blue" data-badge-caption=""
+                        style=" min-width:1.5rem;min-height:1.2rem">{{key+1}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <ul class="collection with-header">
     <li href="#!" class="collection-item" style="padding:0.6rem"><b>Popular</b></li>
     <li href="#!" class="collection-item" style="padding:0.6rem"><span class="new badge">1</span>Alan</li>
