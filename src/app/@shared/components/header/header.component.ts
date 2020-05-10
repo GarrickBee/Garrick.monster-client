@@ -1,6 +1,9 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+
+// Use Materialize JS 
 declare const M: any;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

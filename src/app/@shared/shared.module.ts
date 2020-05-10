@@ -7,6 +7,7 @@ import { AsideComponent } from './components/aside/aside.component';
 import { RouterModule } from '@angular/router';
 import { BlogHorizontalComponent } from './components/blog-horizontal/blog-horizontal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SocialbuttonsComponent } from './components/socialbuttons/socialbuttons.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     AsideComponent,
     BlogHorizontalComponent,
+    SocialbuttonsComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     AsideComponent,
     HttpClientModule,
-    BlogHorizontalComponent
+    BlogHorizontalComponent,
+    SocialbuttonsComponent
   ]
 })
 export class SharedModule { }
