@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService, ArticleService } from '@core/services';
 
-import { Article } from '@core/models';
 
 @Component({
   selector: 'app-blog-horizontal',
@@ -14,7 +13,6 @@ export class BlogHorizontalComponent {
 
   // article: Article[];
   constructor(
-    private apiService: ApiService,
     private articleService: ArticleService
   ) { }
 

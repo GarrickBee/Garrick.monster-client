@@ -3,11 +3,9 @@
         style="width:35%;object-fit:cover">
     <div class="card-stacked">
         <div class="card-content" style="padding:0px 0.6rem 0.3rem 0.6rem ">
-            <h6 class="grey-text text-darken-2">
-                <a [routerLink]="['/blog', article.slug]" routerLinkActive="router-link-active">
-                    <b>{{article.title}}</b>
-                </a>
-            </h6>
+            <a [routerLink]="['/article', article.slug]" routerLinkActive="router-link-active">
+                <h3 style="margin:1rem 0rem"><b>{{article.title}}</b></h3>
+            </a>
             <p>{{article.description}}</p>
         </div>
         <div class="card-action right-align" style='padding:0.2rem 0.4rem;display:flex;justify-content: space-around;'>

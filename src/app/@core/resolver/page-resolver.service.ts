@@ -22,13 +22,9 @@ export class PageResolver implements Resolve<any> {
   ): Observable<any> {
 
     // Query Feature Article 
-    var config: ArticleListConfig = {
-      type: 'feature',
-      filters: {
-        limit: 3
-      }
-    }
-    let articleFeature = this.articleService.getFeatureArticles(config).pipe(catchError(() => this.router.navigateByUrl('/')));
+
+    let articleFeature = this.articleService.getFeatureArticles()
+      .pipe(catchError(() => this.router.navigateByUrl('/')));
 
     return forkJoin([articleFeature]);
   }

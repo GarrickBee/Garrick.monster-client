@@ -22,11 +22,8 @@ export class ArticleService {
     return this.apiService.get(`/article/${slug}`);
   }
 
-  getFeatureArticles(config: ArticleListConfig): Observable<Article> {
-    var params = {};
-    params = config;
-
-    return this.apiService.get('/article/feature', new HttpParams({ fromObject: params })).pipe(map(data => data.articles));
+  getFeatureArticles(): Observable<Article> {
+    return this.apiService.get('/article/feature').pipe(map(data => data.articles));
   }
 
 }

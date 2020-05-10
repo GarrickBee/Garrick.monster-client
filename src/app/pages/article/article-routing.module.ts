@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
 
+import { ArticleComponent } from './article.component';
+import { ArticleResolver } from '@core/resolver';
 
 const routes: Routes = [
-
+  { path: '', component: ArticleComponent },
+  {
+    path: ':slug',
+    component: ArticleComponent,
+    resolve: {
+      article: ArticleResolver
+    }
+  }
 ];
+//Document
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule.forChild(routes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class ArticleRoutingModule { }
