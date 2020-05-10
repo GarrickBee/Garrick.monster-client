@@ -1,26 +1,17 @@
 
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Article } from '@core/models';
 declare const M: any;
 @Component({
   selector: 'app-pages',
-  template: `
-  <app-header class='blog-theme'></app-header>
-  <main>
-      <div class="container blog-theme">
-          <div class="row">
-              <app-sidebar></app-sidebar>
-              <router-outlet></router-outlet>
-              <app-aside></app-aside>
-          </div>
-      </div>
-  </main>
-  <app-footer class='blog-theme'></app-footer>`,
+  templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
-
-  title = 'testing';
-  constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
 

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+
+// Use Materialize JS 
+declare const M: any;
 
 @Component({
   selector: 'app-header',
@@ -7,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit(): void {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
   }
+
 
 }

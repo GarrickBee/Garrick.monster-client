@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { BlogComponent } from './blog/blog.component';
+
 import { PagesComponent } from './pages.component';
-import { BrowserModule } from '@angular/platform-browser';
+
+import { ArticleResolver } from '@core/resolver';
+import { PageResolver } from '@core/resolver/page-resolver.service';
 
 const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
+    resolve: {
+      pageData: PageResolver
+    },
     children: [
+      { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
       {
-        path: '', component: HomeComponent
-      },
-      {
-        path: 'blog', component: BlogComponent
+        path: 'article',
+        loadChildren: () => import('./article/article.module').then(m => m.ArticleModule),
       }
     ]
   }
@@ -24,8 +27,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    BrowserModule,
     RouterModule.forChild(routes)
   ],
   exports: [

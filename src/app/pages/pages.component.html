@@ -1,0 +1,17 @@
+<app-header class='blog-theme'></app-header>
+<main>
+    <div class="container blog-theme">
+        <div class="row">
+            <div class="col s12 l2 hide-on-med-and-down">
+                <app-sidebar></app-sidebar>
+            </div>
+            <div class="col s12 l7" style="margin-top:0.5rem">
+                <router-outlet></router-outlet>
+            </div>
+            <div class="col s12 l3 hide-on-med-and-down">
+                <app-aside></app-aside>
+            </div>
+        </div>
+    </div>
+</main>
+<app-footer class='blog-theme'></app-footer>

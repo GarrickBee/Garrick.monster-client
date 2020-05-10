@@ -1,0 +1,12 @@
+.social-component {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0rem;
+    .share-btn {
+        margin: 0rem 0.5rem;
+        text-transform: capitalize;
+        i {
+            font-size: 1rem;
+        }
+    }
+}
