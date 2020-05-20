@@ -9,11 +9,22 @@ declare const M: any;
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
+  featureArticles: Article;
   constructor(
     private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
+    this.generateFeatureArtiles();
+  }
 
+
+  generateFeatureArtiles() {
+    // Page Resolver
+    this.activatedRoute.data.subscribe(
+      (data: { pageData: [Article] }) => {
+        this.featureArticles = data.pageData[0];
+      }
+    );
   }
 }

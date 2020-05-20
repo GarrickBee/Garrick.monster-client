@@ -30,7 +30,7 @@ import { SocialbuttonsComponent } from './components/socialbuttons/socialbuttons
     AsideComponent,
     HttpClientModule,
     BlogHorizontalComponent,
-    SocialbuttonsComponent
+    SocialbuttonsComponent,
   ]
 })
 export class SharedModule { }

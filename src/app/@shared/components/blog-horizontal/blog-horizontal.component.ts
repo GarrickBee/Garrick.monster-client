@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ApiService, ArticleService } from '@core/services';
+import { Article } from '@core/models';
 
 
 @Component({
@@ -8,8 +9,8 @@ import { ApiService, ArticleService } from '@core/services';
   styleUrls: ['./blog-horizontal.component.scss']
 })
 export class BlogHorizontalComponent {
-  articles: any;
 
+  @Input() articles: Article[];
 
   // article: Article[];
   constructor(
@@ -17,9 +18,6 @@ export class BlogHorizontalComponent {
   ) { }
 
   ngOnInit(): void {
-    // Query Article 
-    this.articleService.getArticles().subscribe(data => {
-      this.articles = data.articles;
-    });
+
   }
 }

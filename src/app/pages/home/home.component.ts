@@ -1,13 +1,17 @@
 
 /**
  * @file Home Component 
- * @author Garrick <https://github.com/garrickbees>
+ * @author Garrick <https://github.com/garrickbee>
  */
 
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import Swiper from 'swiper';
+import { ToastService, ArticleService } from '@core/services';
 // import { ApiService } from '@core/services';
+
+import { Cloudinary } from 'cloudinary-core';
+import { Article } from '@core/models';
 
 // Materialize Init
 declare const M: any;
@@ -19,14 +23,35 @@ declare const M: any;
 
 export class HomeComponent implements OnInit {
   currentDate: Date;
+  articles: Article[];
 
-  constructor(private router: Router) { }
+  constructor(
+    private articleService: ArticleService,
+    private router: Router,
+    private toast: ToastService,
+  ) { }
 
   ngOnInit(): void {
-    this.carousel_init();
-    this.currentDate = new Date();
 
-    var mySwiper = new Swiper('.swiper-container', {
+    this.currentDate = new Date();
+    this.initSwiper();
+    this.generateArticleList();
+  }
+
+
+  generateArticleList() {
+    // Query Article 
+    this.articleService.getArticles().subscribe(data => {
+      this.articles = data.articles;
+    });
+  }
+
+  getImage() {
+    const test = new Cloudinary({ cloud_name: "beero", secure: true });
+  }
+
+  initSwiper() {
+    new Swiper('.swiper-container', {
       loop: true,
       autoplay: {
         delay: 2500,
@@ -40,22 +65,7 @@ export class HomeComponent implements OnInit {
         hide: true,
       },
     });
-
   }
 
-  carousel_init() {
-
-    // Matereliaze caoursel
-    // const elems = document.querySelector('.slider');
-    // M.Slider.init(elems, {
-    //   height: 300,
-    //   indicators: false,
-    // });
-
-    // setInterval(function () {
-    //   M.Carousel.getInstance(elems).next();
-    // }, 3000);
-
-  }
 
 }

@@ -1,0 +1,22 @@
+<div class="card-panel article-detail" style="padding:1rem">
+    <table>
+        <tbody>
+            <tr>
+                <td>Published</td>
+                <td>{{ createdAt | date:'medium' }}</td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td>{{category.title}}</td>
+            </tr>
+            <tr>
+                <td>Tag</td>
+                <td>Tag</td>
+            </tr>
+            <tr>
+                <td>Link</td>
+                <td><a href="{{href}}" target="_blank">{{href}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

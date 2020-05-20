@@ -1,6 +1,8 @@
 <div *ngFor="let article of articles" class="card horizontal" style="padding:0.40rem;">
-    <img class="card-image responsive-img hide-on-small-only" src="./assets/image/satelite.jpg"
-        style="width:35%;object-fit:cover">
+    <img [routerLink]="['/article', article.slug]" routerLinkActive="router-link-active"
+        class="card-image responsive-img hide-on-small-only"
+        src="{{article.image.api}}{{article.image.path}}{{article.image.file}}"
+        style="cursor:pointer;width:35%;object-fit:cover">
     <div class="card-stacked">
         <div class="card-content" style="padding:0px 0.6rem 0.3rem 0.6rem ">
             <a [routerLink]="['/article', article.slug]" routerLinkActive="router-link-active">
@@ -8,13 +10,13 @@
             </a>
             <p>{{article.description}}</p>
         </div>
-        <div class="card-action right-align" style='padding:0.2rem 0.4rem;display:flex;justify-content: space-around;'>
-            <a href="#" style="font-size:12px;margin:0 auto">
-                <i class="fas fa-clock"></i></a>
-            <a href="#" style="font-size:12px;margin:0 auto"><i class="fas fa-eye"></i> View</a>
-            <a href="#" style="font-size:12px;margin:0 auto"><i class="fas fa-comments"></i> comment</a>
-            <a href="#" style="font-size:12px;margin:0 auto"><i class="fas fa-thumbs-up"></i> like</a>
-            <a href="#" style="font-size:12px;margin:0 auto"><i class="fas fa-box-open"></i> date</a>
+        <div class="card-action right-align">
+            <a href="#">
+                <i class="fas fa-clock"></i> {{article.createdAt | date}}
+            </a>
+            <a href="#"><i class="fas fa-eye"></i> 0</a>
+            <a href="#"><i class="fas fa-comments"></i> 0</a>
+            <a href="#"><i class="fas fa-thumbs-up"></i> 0</a>
         </div>
     </div>
 </div>

@@ -21,9 +21,7 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.generateArticle();
-
-    this.href = this.router.url;
-    console.log(this.router.url);
+    this.href = window.location.href;
   }
 
   // Generate Article 
@@ -32,6 +30,7 @@ export class ArticleComponent implements OnInit {
     this.activatedRoute.data.subscribe(
       (data: { article: Article }) => {
         this.article = data.article;
+        console.log(data);
       }
     );
   }
