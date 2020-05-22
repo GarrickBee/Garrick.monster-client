@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ArticleResolver } from '@core/resolver';
 import { ArticleComponent } from './article.component';
 import { CategoryComponent } from './category/category.component';
+import { ArticleResolver } from './article-resolver.service';
+import { CategoryResolver } from './category/category-resolver.service';
 
 const routes: Routes = [
   {
@@ -11,11 +12,11 @@ const routes: Routes = [
     component: ArticleComponent
   },
   {
-    path: 'category/:category',
+    path: 'category/:categorySlug',
     pathMatch: 'prefix',
     component: CategoryComponent,
     resolve: {
-      article: ArticleResolver
+      categoryData: CategoryResolver
     }
   },
   {

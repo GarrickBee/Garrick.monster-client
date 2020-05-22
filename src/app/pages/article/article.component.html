@@ -1,4 +1,4 @@
 <article-page *ngIf="article; else errorBlock" [article]="article"></article-page>
 <ng-template #errorBlock>
-    <p>Not Found</p>
+    <block-error></block-error>
 </ng-template>

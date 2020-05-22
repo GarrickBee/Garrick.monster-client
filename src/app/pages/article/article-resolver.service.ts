@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Article, ArticleListConfig } from '@core/models';
+import { Article } from '@core/models';
 import { ArticleService } from '@core/services';
-import { Observable, forkJoin, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, of, forkJoin } from 'rxjs';
+import { catchError, defaultIfEmpty } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class PageResolver implements Resolve<any> {
+export class ArticleResolver implements Resolve<Article> {
 
   constructor(
     private articleService: ArticleService,
@@ -21,8 +21,12 @@ export class PageResolver implements Resolve<any> {
     state: RouterStateSnapshot
   ): Observable<any> {
 
-    // Query Feature Article 
-    let articleFeature = this.articleService.getFeatureArticles()
+    // if (route.params['slug']) {
+    //   console.log(route.params['slug']);
+    // }
+    console.log(route.params['articleSlug']);
+
+    let article = this.articleService.getArticle(route.params['articleSlug'])
       .pipe(
         catchError(error => {
           const message = `Page Retrieval error: ${error}`;
@@ -31,8 +35,11 @@ export class PageResolver implements Resolve<any> {
         })
       );
 
+
+
     return forkJoin({
-      articleFeature: articleFeature
+      article: article
     });
+
   }
 }

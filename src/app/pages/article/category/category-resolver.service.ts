@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Category } from '@core/models';
 import { ArticleService, CategoryService } from '@core/services';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 
@@ -22,13 +22,15 @@ export class CategoryResolver implements Resolve<Category> {
     state: RouterStateSnapshot
   ): Observable<any> {
 
-    if (route.params['categorySlug']) {
-      // return this.categoryService.getCategory(route.params['categorSlug'])
-      //   .pipe(catchError(() => this.router.navigateByUrl('/')));
-    }
 
     return this.categoryService.getCategories()
-      .pipe(catchError(() => this.router.navigateByUrl('/')));
+      .pipe(
+        catchError(error => {
+          const message = `Page Retrieval error: ${error}`;
+          console.error(message);
+          return of({ product: null, error: message });
+        })
+      );
 
   }
 }

@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Article } from '@core/models';
-import { ArticleService } from '@core/services';
-import { Observable, of, forkJoin } from 'rxjs';
-import { catchError, defaultIfEmpty } from 'rxjs/operators';
+import { Article, ArticleListConfig } from '@core/models';
+import { ArticleService, CategoryService } from '@core/services';
+import { Observable, forkJoin, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ArticleResolver implements Resolve<Article> {
+export class PagesResolver implements Resolve<any> {
 
   constructor(
     private articleService: ArticleService,
+    private categoryService: CategoryService,
     private router: Router
   ) { }
 
@@ -21,12 +22,8 @@ export class ArticleResolver implements Resolve<Article> {
     state: RouterStateSnapshot
   ): Observable<any> {
 
-    // if (route.params['slug']) {
-    //   console.log(route.params['slug']);
-    // }
-    console.log(route.params['articleSlug']);
-
-    let article = this.articleService.getArticle(route.params['articleSlug'])
+    // Query Feature Article 
+    let featureArticles = this.articleService.getFeatureArticles()
       .pipe(
         catchError(error => {
           const message = `Page Retrieval error: ${error}`;
@@ -35,10 +32,12 @@ export class ArticleResolver implements Resolve<Article> {
         })
       );
 
+    let categories = this.categoryService.getCategories()
+      .pipe(catchError(() => this.router.navigateByUrl('/')));
 
     return forkJoin({
-      article: article
+      featureArticles: featureArticles,
+      categories: categories
     });
-
   }
 }

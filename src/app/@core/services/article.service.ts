@@ -20,14 +20,7 @@ export class ArticleService {
   }
 
   getArticle(slug: string): Observable<Article> {
-
-    if (slug != null && slug != '') {
-      return this.apiService.get(`/article/${slug}`);
-    }
-    else {
-      return empty();
-    }
-
+    return this.apiService.get(`/article/${slug}`);
   }
 
   getFeatureArticles(): Observable<Article> {

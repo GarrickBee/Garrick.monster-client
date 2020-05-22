@@ -7,6 +7,7 @@ import { AsideComponent } from './components/aside/aside.component';
 import { RouterModule } from '@angular/router';
 import { BlogHorizontalComponent } from './components/blog-horizontal/blog-horizontal.component';
 import { SocialbuttonsComponent } from './components/socialbuttons/socialbuttons.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SocialbuttonsComponent } from './components/socialbuttons/socialbuttons
     AsideComponent,
     BlogHorizontalComponent,
     SocialbuttonsComponent,
+    ErrorComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { SocialbuttonsComponent } from './components/socialbuttons/socialbuttons
     FooterComponent,
     SidebarComponent,
     AsideComponent,
+    ErrorComponent,
     BlogHorizontalComponent,
     SocialbuttonsComponent,
   ]

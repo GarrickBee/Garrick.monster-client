@@ -24,16 +24,9 @@ export class PagesComponent implements OnInit {
   generatePageData() {
     // Page Resolver
     this.activatedRoute.data.subscribe(
-      (data: {
-        articlesData: {
-          articleFeature: any
-        },
-        categoryData: [Category]
-      }) => {
-
-        this.categories = data.categoryData;
-        this.featureArticles = data.articlesData.articleFeature;
-        console.log(data.articlesData.articleFeature);
+      (data) => {
+        this.categories = data.pagesData.categories;
+        this.featureArticles = data.pagesData.featureArticles;
       }
     );
   }
