@@ -8,7 +8,7 @@
             <tr *ngFor="let article of featureArticles; let key = index">
                 <td style="padding-left :15px;font-size: 0.85rem;font-weight:500;text-transform:capitalize">
                     <a [routerLink]="['/article',article.slug]" routerLinkActive="router-link-active">
-                        {{ (article.title.length>35)? (article.title | slice:0:35)+' ...':(article.title) }}
+                        {{ (article.title.length>35)? (article.title | slice:0:30)+' ...':(article.title) }}
                     </a>
                 </td>
                 <td>
@@ -26,9 +26,10 @@
 <!-- Tag List -->
 <div class="card ">
     <div class="card-panel" style="padding:0.6rem">
-        <a class="waves-effect waves-light btn-small z-depth-0" style="margin:2px">But</a>
+        Under Construction
+        <!-- <a class="waves-effect waves-light btn-small z-depth-0" style="margin:2px">But</a>
         <a class="waves-effect waves-light btn-small z-depth-0" style="margin:2px">Butt</a>
         <a class="waves-effect waves-light btn-small z-depth-0" style="margin:2px">Bu</a>
-        <a class="waves-effect waves-light btn-small z-depth-0" style="margin:2px">Button</a>
+        <a class="waves-effect waves-light btn-small z-depth-0" style="margin:2px">Button</a> -->
     </div>
 </div>

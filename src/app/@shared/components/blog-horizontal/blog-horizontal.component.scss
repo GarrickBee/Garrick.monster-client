@@ -1,10 +1,9 @@
 .card-action {
     padding: 0.2rem 0.4rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     a {
         font-size: 12px;
-        margin: 0 1rem;
         color: #004d40 !important;
     }
     a:hover {
