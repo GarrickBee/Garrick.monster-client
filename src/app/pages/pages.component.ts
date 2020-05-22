@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Article } from '@core/models';
+import { Article, Category } from '@core/models';
 declare const M: any;
 @Component({
   selector: 'app-pages',
@@ -9,11 +9,25 @@ declare const M: any;
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
+  featureArticles: [Article];
+  categories: [Category];
+
   constructor(
     private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
+    this.generatePageData();
+  }
 
+
+  generatePageData() {
+    // Page Resolver
+    this.activatedRoute.data.subscribe(
+      (data) => {
+        this.categories = data.pagesData.categories;
+        this.featureArticles = data.pagesData.featureArticles;
+      }
+    );
   }
 }

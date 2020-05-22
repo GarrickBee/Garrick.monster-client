@@ -1,0 +1,23 @@
+<div class="card-panel article-detail">
+    <table class="highlight">
+        <tbody>
+            <tr>
+                <td>Published</td>
+                <td>{{ createdAt | date:'medium' }}</td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td>{{category.title}}</td>
+            </tr>
+            <tr>
+                <td>Tag</td>
+                <td>Tag</td>
+            </tr>
+            <tr>
+                <td>Link</td>
+                <td style=" word-wrap:break-word;"><a href="{{href}}" target="_blank"
+                        style="word-wrap: break-word;">{{href}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

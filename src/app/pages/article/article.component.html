@@ -1,38 +1,4 @@
-<div class="card">
-    <div class="card-image">
-        <img src="./assets/image/satelite.jpg" style="max-height: 300px;object-fit:cover;">
-        <span class="card-title">{{article.title}}</span>
-    </div>
-</div>
-<!-- Article Content -->
-<div class="card-panel article-content">
-    <div class="card-content">
-        <markdown ngPreserveWhitespaces lineNumbers>
-            {{article.body}}
-        </markdown>
-    </div>
-</div>
-<app-socialbuttons></app-socialbuttons>
-<!-- Article Details -->
-<div class="card-panel article-detail" style="padding:1rem">
-    <table>
-        <tbody>
-            <tr>
-                <td>Published</td>
-                <td>trsting date</td>
-            </tr>
-            <tr>
-                <td>Category</td>
-                <td>trsting date</td>
-            </tr>
-            <tr>
-                <td>Tag</td>
-                <td>trsting date</td>
-            </tr>
-            <tr>
-                <td>Link</td>
-                <td>trsting date</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<article-page *ngIf="article; else errorBlock" [article]="article"></article-page>
+<ng-template #errorBlock>
+    <block-error></block-error>
+</ng-template>

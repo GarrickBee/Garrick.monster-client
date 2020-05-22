@@ -1,3 +1,5 @@
 export interface Errors {
-  errors: {[key: string]: string};
+  status: number;
+  title: string;
+  message: string;
 }

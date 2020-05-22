@@ -10,15 +10,22 @@ import { SharedModule } from '@shared/shared.module';
 import { MarkdownModule } from 'ngx-markdown';
 
 import { ArticleComponent } from './article.component';
+import { HttpClient } from '@angular/common/http';
+
+import { DetailsComponent } from './details/details.component';
+import { PageComponent } from './page/page.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
-  declarations: [ArticleComponent],
+  declarations: [ArticleComponent, DetailsComponent, PageComponent, CategoryComponent],
   imports: [
     CommonModule,
     SharedModule,
     CoreModule,
     ArticleRoutingModule,
-    MarkdownModule.forRoot(),
+    MarkdownModule.forRoot(
+      { loader: HttpClient, }
+    ),
   ]
 })
 export class ArticleModule { }

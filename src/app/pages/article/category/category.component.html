@@ -1,0 +1,4 @@
+<app-blog-horizontal *ngIf="articles; else errorBlock" [articles]="articles"></app-blog-horizontal>
+<ng-template #errorBlock>
+    <block-error></block-error>
+</ng-template>
