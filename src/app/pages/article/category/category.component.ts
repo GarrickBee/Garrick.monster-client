@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Article } from '@core/models';
 
 @Component({
   selector: 'app-category',
@@ -6,17 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
+  articles: any;
 
-  constructor() { }
+
+  constructor(
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.generateArticleList();
   }
 
-  // generateArticleList() {
-  //   // Query Article 
-  //   this.articleService.getArticles().subscribe(data => {
-  //     this.articles = data.articles;
-  //   });
-  // }
+  generateArticleList() {
+    // Query Article 
+    this.activatedRoute.data.subscribe(
+      (data) => {
+        this.articles = data.categoryData.articles.articles;
+      }
+    );
+
+  }
 
 }

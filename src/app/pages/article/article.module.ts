@@ -14,9 +14,10 @@ import { HttpClient } from '@angular/common/http';
 
 import { DetailsComponent } from './details/details.component';
 import { PageComponent } from './page/page.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
-  declarations: [ArticleComponent, DetailsComponent, PageComponent],
+  declarations: [ArticleComponent, DetailsComponent, PageComponent, CategoryComponent],
   imports: [
     CommonModule,
     SharedModule,

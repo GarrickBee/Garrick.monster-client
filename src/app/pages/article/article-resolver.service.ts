@@ -35,8 +35,6 @@ export class ArticleResolver implements Resolve<Article> {
         })
       );
 
-
-
     return forkJoin({
       article: article
     });

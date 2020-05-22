@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from '@core/models';
+import { SeoService } from '@core/services';
 
 
 @Component({
@@ -18,10 +19,12 @@ export class ArticleComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private seoService: SeoService
   ) { }
 
   ngOnInit(): void {
     this.generateArticle();
+    this.seoService.updateMetaTags();
   }
 
   // Generate Article 

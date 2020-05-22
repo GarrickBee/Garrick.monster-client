@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { HttpClientModule } from '@angular/common/http';
+import { SeoService } from '@core/services';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoadingBarRouterModule,
     LoadingBarHttpClientModule,
   ],
-  providers: [],
+  providers: [
+    SeoService
+  ],
   bootstrap: [AppComponent]
 })
 

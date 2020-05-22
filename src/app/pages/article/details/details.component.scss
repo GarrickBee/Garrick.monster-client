@@ -1,22 +1,20 @@
 .article-detail {
-    // overflow-x:auto;
+    overflow-x: auto;
+    padding: 1rem;
     table {
         border-collapse: separate;
         border-spacing: 0px 10px;
-        word-wrap: break-word;
-        table-layout: fixed;
-
         tr {
             margin: 1rem;
             border-bottom: none;
 
             td:first-child {
-                min-width: 15%;
+                width: 15%;
                 border-left: 6px solid #cfd8dc;
             }
             td {
                 text-align: left;
-                // width: 85%;
+                width: 85%;
                 padding: 0px 5px 0px 10px;
             }
         }

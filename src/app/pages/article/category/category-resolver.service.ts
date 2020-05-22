@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Category } from '@core/models';
+import { Category, ArticleListConfig } from '@core/models';
 import { ArticleService, CategoryService } from '@core/services';
-import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, of, forkJoin } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryResolver implements Resolve<Category> {
+
+  config: ArticleListConfig;
 
   constructor(
     private categoryService: CategoryService,
@@ -22,8 +24,13 @@ export class CategoryResolver implements Resolve<Category> {
     state: RouterStateSnapshot
   ): Observable<any> {
 
+    this.config = {
+      filters: {
+        category: route.params['categorySlug']
+      }
+    }
 
-    return this.categoryService.getCategories()
+    let articles = this.articleService.queryArticles(this.config)
       .pipe(
         catchError(error => {
           const message = `Page Retrieval error: ${error}`;
@@ -31,6 +38,12 @@ export class CategoryResolver implements Resolve<Category> {
           return of({ product: null, error: message });
         })
       );
+
+    return forkJoin({
+      articles: articles,
+    });
+
+
 
   }
 }

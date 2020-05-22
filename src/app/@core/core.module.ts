@@ -6,16 +6,20 @@ import {
   ArticleService,
   ToastService,
 } from './services';
+import { ImageErrorDirective } from './directives/image-error.directive';
 
 @NgModule({
-  declarations: [],
+  declarations: [ImageErrorDirective],
   imports: [
     CommonModule
   ],
   providers: [
     ApiService,
     ArticleService,
-    ToastService
+    ToastService,
+  ],
+  exports: [
+    ImageErrorDirective
   ]
 })
 export class CoreModule { }
