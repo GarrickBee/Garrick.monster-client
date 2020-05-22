@@ -23,13 +23,30 @@
         </tbody>
     </table>
 </div>
+
+<!-- Category -->
+<div class="card-panel" style="padding:0px">
+    <table>
+        <tbody>
+            <tr>
+                <td colspan="2" style="padding-left :15px"><b>Categories</b></td>
+            </tr>
+            <tr *ngFor="let category of categories">
+                <ng-template [ngIf]="category.slug != 'default'">
+                    <td style="padding-left :15px;font-size: 0.85rem;font-weight:500;text-transform:capitalize">
+                        <a [routerLink]="['/article/category',category.slug]" routerLinkActive="router-link-active">
+                            {{category.title  }}
+                        </a>
+                    </td>
+                </ng-template>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <!-- Tag List -->
+
 <div class="card ">
     <div class="card-panel" style="padding:0.6rem">
-        Under Construction
-        <!-- <a class="waves-effect waves-light btn-small z-depth-0" style="margin:2px">But</a>
-        <a class="waves-effect waves-light btn-small z-depth-0" style="margin:2px">Butt</a>
-        <a class="waves-effect waves-light btn-small z-depth-0" style="margin:2px">Bu</a>
-        <a class="waves-effect waves-light btn-small z-depth-0" style="margin:2px">Button</a> -->
+        <a class="waves-effect waves-light btn-small z-depth-0" style="margin:2px">But</a>
     </div>
 </div>

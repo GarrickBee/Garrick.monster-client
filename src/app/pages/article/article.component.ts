@@ -12,6 +12,7 @@ export class ArticleComponent implements OnInit {
   article: any;
   articleContent: HTMLElement;
   href: string;
+  error: any;
 
 
   constructor(
@@ -21,16 +22,19 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.generateArticle();
-    this.href = window.location.href;
   }
 
   // Generate Article 
   generateArticle() {
     // Article Resolver 
     this.activatedRoute.data.subscribe(
-      (data: { article: Article }) => {
-        this.article = data.article;
-        console.log(data);
+      (data) => {
+
+        if (data.article.article.error) {
+          this.error = data.article.article;
+        } else {
+          this.article = data.article.article;
+        }
       }
     );
   }

@@ -13,10 +13,10 @@ import { ArticleComponent } from './article.component';
 import { HttpClient } from '@angular/common/http';
 
 import { DetailsComponent } from './details/details.component';
-import { CategoryComponent } from './category/category.component';
+import { PageComponent } from './page/page.component';
 
 @NgModule({
-  declarations: [ArticleComponent, DetailsComponent, CategoryComponent],
+  declarations: [ArticleComponent, DetailsComponent, PageComponent],
   imports: [
     CommonModule,
     SharedModule,

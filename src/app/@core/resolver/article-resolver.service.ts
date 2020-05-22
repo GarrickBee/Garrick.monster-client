@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Article } from '@core/models';
 import { ArticleService } from '@core/services';
-import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, of, forkJoin } from 'rxjs';
+import { catchError, defaultIfEmpty } from 'rxjs/operators';
 
 
 @Injectable({
@@ -20,7 +20,25 @@ export class ArticleResolver implements Resolve<Article> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> {
-    return this.articleService.getArticle(route.params['slug'])
-      .pipe(catchError(() => this.router.navigateByUrl('/')));
+
+    // if (route.params['slug']) {
+    //   console.log(route.params['slug']);
+    // }
+    console.log(route.params['articleSlug']);
+
+    let article = this.articleService.getArticle(route.params['articleSlug'])
+      .pipe(
+        catchError(error => {
+          const message = `Page Retrieval error: ${error}`;
+          console.error(message);
+          return of({ product: null, error: message });
+        })
+      );
+
+
+    return forkJoin({
+      article: article
+    });
+
   }
 }

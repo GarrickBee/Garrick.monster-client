@@ -4,15 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { PagesComponent } from './pages.component';
 
-import { ArticleResolver } from '@core/resolver';
-import { PageResolver } from '@core/resolver/page-resolver.service';
+import {
+  PageResolver,
+  CategoryResolver
+} from '@core/resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
     resolve: {
-      pageData: PageResolver
+      articlesData: PageResolver,
+      categoryData: CategoryResolver
     },
     children: [
       { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },

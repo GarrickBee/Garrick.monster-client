@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Article } from '@core/models';
+import { Article, Category } from '@core/models';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -11,15 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 export class AsideComponent implements OnInit {
 
   @Input()
-  featureArticles: Article;
+  featureArticles: [Article];
+  @Input()
+  categories: [Category];
+
 
   constructor(
     private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-
-
-
   }
+
+
 }

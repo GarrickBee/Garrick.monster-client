@@ -31,6 +31,8 @@ export class PageResolver implements Resolve<any> {
         })
       );
 
-    return forkJoin([articleFeature]);
+    return forkJoin({
+      articleFeature: articleFeature
+    });
   }
 }

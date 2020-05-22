@@ -51,19 +51,24 @@ export class HomeComponent implements OnInit {
   }
 
   initSwiper() {
+
     new Swiper('.swiper-container', {
       loop: true,
+      lazy: true,
+      speed: 1500,
       autoplay: {
-        delay: 2500,
+        delay: 3000,
         disableOnInteraction: false,
       },
       fadeEffect: {
         crossFade: true
       },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-        hide: true,
+      pagination: {
+        el: '.swiper-pagination',
+        dynamicBullets: true,
+        clickable: true,
       },
+      mousewheel: true,
     });
   }
 

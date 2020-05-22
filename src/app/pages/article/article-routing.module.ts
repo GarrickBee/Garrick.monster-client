@@ -14,12 +14,12 @@ const routes: Routes = [
     path: 'category/:category',
     pathMatch: 'prefix',
     component: CategoryComponent,
-    // resolve: {
-    //   article: ArticleResolver
-    // }
+    resolve: {
+      article: ArticleResolver
+    }
   },
   {
-    path: ':slug',
+    path: ':articleSlug',
     component: ArticleComponent,
     resolve: {
       article: ArticleResolver

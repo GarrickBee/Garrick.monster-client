@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Article, ArticleListConfig } from '@core/models';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, empty, of } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
+import { JsonPipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,14 @@ export class ArticleService {
   }
 
   getArticle(slug: string): Observable<Article> {
-    return this.apiService.get(`/article/${slug}`);
+
+    if (slug != null && slug != '') {
+      return this.apiService.get(`/article/${slug}`);
+    }
+    else {
+      return empty();
+    }
+
   }
 
   getFeatureArticles(): Observable<Article> {

@@ -12,4 +12,11 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // generateArticleList() {
+  //   // Query Article 
+  //   this.articleService.getArticles().subscribe(data => {
+  //     this.articles = data.articles;
+  //   });
+  // }
+
 }
