@@ -6,12 +6,13 @@ const routes: Routes = [
   {
     path: '', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'error' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    preloadingStrategy: PreloadAllModules
+    preloadingStrategy: PreloadAllModules,
+    scrollPositionRestoration: 'enabled'
   })],
   exports: [RouterModule]
 })

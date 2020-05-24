@@ -33,7 +33,13 @@ export class PagesResolver implements Resolve<any> {
       );
 
     let categories = this.categoryService.getCategories()
-      .pipe(catchError(() => this.router.navigateByUrl('/')));
+      .pipe(
+        catchError(error => {
+          const message = `Page Retrieval error: ${error}`;
+          console.error(message);
+          return of({ product: null, error: message });
+        })
+      );
 
     return forkJoin({
       featureArticles: featureArticles,

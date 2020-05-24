@@ -7,7 +7,8 @@ import { AsideComponent } from './components/aside/aside.component';
 import { RouterModule } from '@angular/router';
 import { BlogHorizontalComponent } from './components/blog-horizontal/blog-horizontal.component';
 import { SocialbuttonsComponent } from './components/socialbuttons/socialbuttons.component';
-import { ErrorComponent } from './components/error/error.component';
+import { ErrorBlockComponent } from './components/error-block/errorBlock.component';
+import { MobileSidebarComponent } from './components/mobile-sidebar/mobile-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ErrorComponent } from './components/error/error.component';
     AsideComponent,
     BlogHorizontalComponent,
     SocialbuttonsComponent,
-    ErrorComponent,
+    ErrorBlockComponent,
+    MobileSidebarComponent,
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,7 @@ import { ErrorComponent } from './components/error/error.component';
     FooterComponent,
     SidebarComponent,
     AsideComponent,
-    ErrorComponent,
+    ErrorBlockComponent,
     BlogHorizontalComponent,
     SocialbuttonsComponent,
   ]

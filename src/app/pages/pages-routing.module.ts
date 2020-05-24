@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { PagesComponent } from './pages.component';
 
 import { PagesResolver } from './pages-resolver.service';
+import { ErrorComponent } from './error/error.component';
+
 
 const routes: Routes = [
   {
@@ -19,6 +21,10 @@ const routes: Routes = [
         loadChildren: () => import('./article/article.module').then(m => m.ArticleModule),
       }
     ]
+  },
+  {
+    path: 'error',
+    component: ErrorComponent
   }
 ];
 
