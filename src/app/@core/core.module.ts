@@ -9,21 +9,26 @@ import {
 } from './services';
 
 import { ImageErrorDirective } from './directives/image-error.directive';
+import { ImageFormatPipe } from './pipes/image-format.pipe';
 
 @NgModule({
-  declarations: [ImageErrorDirective],
+  declarations: [
+    ImageErrorDirective,
+    ImageFormatPipe,
+  ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   providers: [
     ApiService,
     ArticleService,
     ToastService,
     SeoService,
-    DatePipe
+    DatePipe,
   ],
   exports: [
-    ImageErrorDirective
+    ImageErrorDirective,
+    ImageFormatPipe,
   ]
 })
 export class CoreModule { }

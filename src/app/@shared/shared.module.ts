@@ -20,6 +20,7 @@ import { MobileSidebarComponent } from './components/mobile-sidebar/mobile-sideb
     SocialbuttonsComponent,
     ErrorBlockComponent,
     MobileSidebarComponent,
+
   ],
   imports: [
     CommonModule,
@@ -33,6 +34,7 @@ import { MobileSidebarComponent } from './components/mobile-sidebar/mobile-sideb
     ErrorBlockComponent,
     BlogHorizontalComponent,
     SocialbuttonsComponent,
+
   ]
 })
 export class SharedModule { }

@@ -6,7 +6,7 @@
                 <app-sidebar></app-sidebar>
             </div>
             <div class="col s12 l7" style="margin-top:0.5rem">
-                <router-outlet></router-outlet>
+                <router-outlet #o="outlet"></router-outlet>
             </div>
             <div class="col s12 l3 hide-on-med-and-down">
                 <app-aside [featureArticles]="featureArticles" [categories]="categories"></app-aside>

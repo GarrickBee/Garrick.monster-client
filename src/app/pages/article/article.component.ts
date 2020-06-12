@@ -24,7 +24,7 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.generateArticle();
-    this.seoService.updateMetaTags();
+    // this.seoService.updateMetaTags();
   }
 
   // Generate Article 

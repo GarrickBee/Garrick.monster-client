@@ -10,7 +10,9 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { HttpClientModule } from '@angular/common/http';
 import { SeoService } from '@core/services';
 
+// Angular Animation
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    CoreModule,
     HttpClientModule,
     LoadingBarRouterModule,
     LoadingBarHttpClientModule,
-    BrowserAnimationsModule
-  ],
-  providers: [
-    SeoService
+
   ],
   bootstrap: [AppComponent]
 })

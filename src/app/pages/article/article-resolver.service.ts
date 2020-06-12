@@ -24,7 +24,6 @@ export class ArticleResolver implements Resolve<Article> {
     // if (route.params['slug']) {
     //   console.log(route.params['slug']);
     // }
-    console.log(route.params['articleSlug']);
 
     let article = this.articleService.getArticle(route.params['articleSlug'])
       .pipe(

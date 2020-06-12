@@ -3,14 +3,14 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide">
-            <img class="card-image responsive-img swiper-lazy" data-src="./assets/image/satelite.jpg">
+        <div class="swiper-slide" *ngFor="let sliderImage of sliderImages">
+            <img class="card-image responsive-img swiper-lazy" data-src="{{sliderImage | imageFormat}}" appImageError>
             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
         </div>
-        <div class="swiper-slide">
-            <img class="card-image responsive-img  swiper-lazy" src="./assets/image/macbook.jpg">
+        <!-- <div class="swiper-slide" *ngFor="let sliderImage of sliderImages">
+            <img class="card-image responsive-img swiper-lazy" data-src="{{sliderImage | imageFormat}}">
             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-        </div>
+        </div> -->
     </div>
     <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
