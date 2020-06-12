@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import {
   ApiService,
   ArticleService,
   ToastService,
+  SeoService,
 } from './services';
+
 import { ImageErrorDirective } from './directives/image-error.directive';
 
 @NgModule({
@@ -17,6 +19,8 @@ import { ImageErrorDirective } from './directives/image-error.directive';
     ApiService,
     ArticleService,
     ToastService,
+    SeoService,
+    DatePipe
   ],
   exports: [
     ImageErrorDirective

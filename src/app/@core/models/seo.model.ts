@@ -1,9 +1,9 @@
 export interface SEO {
-  email: string;
-  url: string;
-  author: string;
-  image: string;
-  description: string;
-  robots: string;
-
+  title?: string,
+  keywords?: string,
+  description?: string,
+  url?: string,
+  type?: string
+  image?: string,
+  date?: string,
 }

@@ -1,30 +1,62 @@
 import { Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { SEO } from '@core/models';
+import { DatePipe } from '@angular/common';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class SeoService {
+  defaults: SEO;
+  seoProps: SEO;
 
+  constructor(private meta: Meta, private title: Title, private datePipe: DatePipe) {
+    // Today Dates
+    let todayDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
 
-  constructor(private meta: Meta, ) {
-    meta.updateTag({ name: 'description', content: 'this is new description' });
+    this.defaults = {
+      title: "Garrick Monster",
+      url: window.location.href,
+      description: "A journey of a software developer.",
+      image: "/",
+      keywords: "JavaScript, Angular",
+      date: todayDate,
+      type: "website"
+    }
   }
 
-
-  initMeta() {
-    this.meta.updateTag({ name: 'description', content: 'My coding journey' });
-    this.meta.updateTag({ name: 'keywords', content: 'JavaScript, Angular' });
-    this.meta.updateTag({ httpEquiv: 'Content-Type', content: 'application/json' }, 'httpEquiv= "Content-Type"');
-    this.meta.updateTag({ name: 'author', content: 'ndf_724@hotmail.com' });
-    this.meta.updateTag({ property: 'og:title', content: "My Text2" });
-    this.meta.updateTag({ property: 'og:type', content: "website" });
+  /**
+   * Update Seo Meta Tags 
+   * @param options :SEO
+   * 
+   */
+  updateMetaTags(options?: SEO) {
+    // Set SEO Options Properties
+    this.seoProps = { ...this.defaults, ...options };
+    // Browser
+    this.title.setTitle(this.seoProps.title);
+    this.meta.updateTag({ name: 'keywords', content: this.seoProps.keywords });
+    this.meta.updateTag({ name: 'description', content: this.seoProps.description });
+    this.meta.updateTag({ name: 'date', content: this.seoProps.date, scheme: 'YYYY-MM-DD' });
+    this.meta.updateTag({ name: "identifier-URL", content: this.seoProps.url });
+    this.meta.updateTag({ name: "url", content: this.seoProps.url });
+    // Facebook 
+    this.meta.updateTag({ property: 'og:title', content: this.seoProps.title });
+    this.meta.updateTag({ property: 'og:description', content: this.seoProps.description });
+    this.meta.updateTag({ property: "og:url", content: this.seoProps.url });
+    this.meta.updateTag({ property: "og:type", content: this.seoProps.type });
+    this.meta.updateTag({ property: "og:image", content: this.seoProps.image });
+    // Twitter
+    this.meta.updateTag({ property: "twitter:description", content: this.seoProps.description });
+    this.meta.updateTag({ property: "twitter:card", content: this.seoProps.image });
+    this.meta.updateTag({ property: "twitter:url", content: this.seoProps.url });
+    this.meta.updateTag({ property: "twitter:title", content: this.seoProps.title });
+    this.meta.updateTag({ property: "twitter:image", content: this.seoProps.image });
   }
-
-  addMetaTags(config: [SEO]) {
+  addMetaTags() {
     this.meta.addTags([
+      { name: 'description', content: 'My coding journey' },
       { name: "identifier-URL", content: 'ABCD' },
       { name: 'keywords', content: 'TypeScript, Angular' },
       { name: 'date', content: '2018-06-02', scheme: 'YYYY-MM-DD' },
@@ -53,18 +85,6 @@ export class SeoService {
       console.log(el.name);
       console.log(el.content);
     });
-  }
-
-  updateMetaTags() {
-    this.meta.updateTag({ name: 'description', content: 'Updated: Title and Meta tags examples' });
-    this.meta.updateTag({ httpEquiv: 'Content-Type', content: 'application/json' }, 'httpEquiv= "Content-Type"');
-    this.meta.updateTag({ name: 'robots', content: 'NOINDEX, NOFOLLOW' });
-    this.meta.updateTag({ name: 'keywords', content: 'JavaScript, Angular' });
-    this.meta.updateTag({ name: 'date', content: '2018-06-03', scheme: 'YYYY-MM-DD' });
-    this.meta.updateTag({ name: 'author', content: 'VXYZ' });
-    this.meta.updateTag({ charset: 'UTF-16' }, 'charset= "UTF-8"');
-    this.meta.updateTag({ property: 'og:title', content: "My Text2" });
-    this.meta.updateTag({ property: 'og:type', content: "website" });
   }
 
   removeMetaTags() {
