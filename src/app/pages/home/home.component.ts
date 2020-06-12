@@ -11,7 +11,6 @@ import { ToastService, ArticleService, SeoService } from '@core/services';
 import { Article } from '@core/models';
 import { fadeAnimation } from '@shared/animations/fade-animation';
 
-
 // Materialize Init
 declare const M: any;
 
@@ -42,7 +41,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
    * Init
    */
   ngOnInit(): void {
-
     this.generateArticleList();
     this.getFeatureArticles();
   }
