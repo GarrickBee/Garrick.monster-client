@@ -9,6 +9,7 @@ import { BlogHorizontalComponent } from './components/blog-horizontal/blog-horiz
 import { SocialbuttonsComponent } from './components/socialbuttons/socialbuttons.component';
 import { ErrorBlockComponent } from './components/error-block/errorBlock.component';
 import { MobileSidebarComponent } from './components/mobile-sidebar/mobile-sidebar.component';
+import { NavButtonComponent } from './components/nav-button/nav-button.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MobileSidebarComponent } from './components/mobile-sidebar/mobile-sideb
     SocialbuttonsComponent,
     ErrorBlockComponent,
     MobileSidebarComponent,
+    NavButtonComponent,
 
   ],
   imports: [
@@ -34,6 +36,7 @@ import { MobileSidebarComponent } from './components/mobile-sidebar/mobile-sideb
     ErrorBlockComponent,
     BlogHorizontalComponent,
     SocialbuttonsComponent,
+    NavButtonComponent,
 
   ]
 })

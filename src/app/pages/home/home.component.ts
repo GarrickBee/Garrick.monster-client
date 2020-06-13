@@ -8,8 +8,9 @@ import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angula
 import { Router, ActivatedRoute } from '@angular/router';
 import Swiper from 'swiper';
 import { ToastService, ArticleService, SeoService } from '@core/services';
-import { Article } from '@core/models';
+import { Article, ArticleListConfig } from '@core/models';
 import { fadeAnimation } from '@shared/animations/fade-animation';
+
 
 // Materialize Init
 declare const M: any;
@@ -27,6 +28,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   categories: any;
   featureArticles: any;
   sliderImages: any;
+  totalArticles: number;
+  currentPage: number;
+  totalPages: number;
+  articlesConfig: ArticleListConfig
 
   constructor(
     private articleService: ArticleService,
@@ -62,6 +67,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       }
     );
   }
+
   /**
    * Get Articles
    */
@@ -69,7 +75,27 @@ export class HomeComponent implements OnInit, AfterViewInit {
     // Query Article 
     this.articleService.getArticles().subscribe(data => {
       this.articles = data.articles;
+      this.totalArticles = data.total;
+      this.currentPage = data.page;
+      this.totalPages = data.pages;
     });
+  }
+
+  loadMoreArticles() {
+    this.articlesConfig = {
+      filters: {
+        page: this.currentPage + 1
+      }
+    };
+    this.articleService.queryArticles(this.articlesConfig).subscribe(data => {
+      data.articles.forEach((article) => {
+        this.articles.push(article);
+      });
+      this.totalArticles = data.total;
+      this.currentPage = data.page;
+      this.totalPages = data.pages;
+    });
+
   }
 
   /**

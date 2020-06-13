@@ -16,12 +16,6 @@ export interface Article {
     api: string;
     path: string;
     file: string;
-  }
-
-
-
-
-
-
+  },
 
 }

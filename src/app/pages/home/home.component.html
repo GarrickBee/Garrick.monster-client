@@ -1,5 +1,5 @@
 <!-- Slider main container -->
-<div class="swiper-container  fade" style="margin-bottom:1rem;">
+<div class="swiper-container fade">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
@@ -7,10 +7,6 @@
             <img class="card-image responsive-img swiper-lazy" data-src="{{sliderImage | imageFormat}}" appImageError>
             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
         </div>
-        <!-- <div class="swiper-slide" *ngFor="let sliderImage of sliderImages">
-            <img class="card-image responsive-img swiper-lazy" data-src="{{sliderImage | imageFormat}}">
-            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-        </div> -->
     </div>
     <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
@@ -18,3 +14,16 @@
 <div class="card-panel deep-purple lighten-5" style="padding:5px"></div>
 
 <app-blog-horizontal [articles]="articles"></app-blog-horizontal>
+
+<div class="center">
+    <ng-template [ngIf]="currentPage < totalPages" [ngIfElse]="disableLoad">
+        <button class="btn waves-effect waves-light" (click)="loadMoreArticles()">Load
+            More Articles
+        </button>
+    </ng-template>
+
+    <ng-template #disableLoad>
+        <button class="btn disabled">No More Articles
+        </button>
+    </ng-template>
+</div>

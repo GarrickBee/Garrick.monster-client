@@ -10,7 +10,7 @@ import { Article } from '@core/models';
 })
 export class BlogHorizontalComponent {
 
-  @Input() articles: Article[];
+  @Input() articles: any;
 
   // article: Article[];
   constructor(
@@ -20,4 +20,6 @@ export class BlogHorizontalComponent {
   ngOnInit(): void {
 
   }
+
+
 }

@@ -15,7 +15,7 @@ export class ArticleService {
   ) { }
 
 
-  queryArticles(config: ArticleListConfig): Observable<{ articles: Article[], articlesCount: number }> {
+  queryArticles(config: ArticleListConfig): Observable<{ articles: Article[], total: number, pages: number, page: number }> {
     // Convert any filters over to Angular's URLSearchParams
     const params = {};
 
@@ -26,22 +26,22 @@ export class ArticleService {
 
     return this.apiService
       .get(
-        '/article' + ((config.type === 'feed') ? '/feed' : ''),
+        '/articles' + ((config.type === 'feed') ? '/feed' : ''),
         new HttpParams({ fromObject: params })
       );
   }
 
-  getArticles(): Observable<{ articles: Article[], articlesCount: Number }> {
+  getArticles(): Observable<{ articles: Article[], total: number, pages: number, page: number }> {
 
-    return this.apiService.get('/article');
+    return this.apiService.get('/articles');
   }
 
   getArticle(slug: string): Observable<Article> {
-    return this.apiService.get(`/article/${slug}`);
+    return this.apiService.get(`/articles/${slug}`);
   }
 
   getFeatureArticles(): Observable<Article> {
-    return this.apiService.get('/article/feature').pipe(map(data => data.articles));
+    return this.apiService.get('/articles/feature').pipe(map(data => data.articles));
   }
 
 }

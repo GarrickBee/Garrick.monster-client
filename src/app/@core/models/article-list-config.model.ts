@@ -6,7 +6,8 @@ export interface ArticleListConfig {
     author?: string,
     favorited?: string,
     limit?: number,
+    page?: number,
     offset?: number,
-    category: string
+    category?: string
   };
 }

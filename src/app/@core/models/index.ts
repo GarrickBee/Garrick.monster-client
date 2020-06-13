@@ -6,3 +6,4 @@ export * from './profile.model';
 export * from './user.model';
 export * from './category.model';
 export * from './seo.model';
+export * from './pagination.model';
