@@ -47,7 +47,3 @@ Thumbs.db
 
 #Environment Production File
 src/environments/environment.prod.ts
-
-# Proxy
-proxy.conf.json
-proxy.conf.prod.json
